@@ -1,6 +1,5 @@
 import sys
 import time
-
 import cv2
 import keyboard
 import numpy as np
@@ -8,12 +7,23 @@ import pytesseract
 from PIL import ImageGrab
 from pyautogui import keyDown, keyUp
 
-pytesseract.pytesseract.tesseract_cmd = r'D:\Program Files (x86)\Tesseract-OCR\tesseract.exe'
+# pytesseract.pytesseract.tesseract_cmd = r'D:\Program Files (x86)\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
 def welcome():
     print('Welcome to D2 AutoFishing!')
+    print('If your monitor is 2560 x 1440, please input 0.')
+    print('If your monitor is 3840 x 2160, please input 1. (not yet implemented)')
+    print('If your monitor is 1920 x 1080, please input 2. (not yet implemented)')
+    print('If your monitor is 2560 x 1080, please input 3. (not yet implemented)')
+    print('If your monitor is 1920 x 800,  please input 4. (not yet implemented)')
+    print('If your monitor is 3440 x 1440, please input 5. (not yet implemented)')
+    print('If your monitor is 7680 x 4320, please input 6. (not yet implemented)')
+    resolution = input()
+    print('Adjusting settings...')
     print('Press CTRL to stop at any time.')
+    return resolution
 
 
 def compare(tuple, colour):
@@ -29,7 +39,7 @@ def compare(tuple, colour):
             return False
 
 
-def catch():
+def catch(dimensions):
     perf_count = 0
 
     px = ImageGrab.grab(
@@ -62,21 +72,21 @@ def catch():
         print("Fish detected: Reeling In!")
 
 
-def roi(img, vertices):
+def roi(img, vertices, dimensions):
     # blank mask:
     mask = np.zeros_like(img)
-    catch()
+    catch(dimensions)
     # fill the mask
     cv2.fillPoly(mask, vertices, 255)
-    catch()
+    catch(dimensions)
     # now only show the area that is the mask
     masked = cv2.bitwise_and(img, mask)
-    catch()
+    catch(dimensions)
     return masked
 
 
 def identify(text):
-    if ("Go Fishing" in text) or ("Fishing (Bait" in text) or ("Bait Held" in text):
+    if ("Fishing" in text) or ("Bait" in text):
         return True
     else:
         return False
@@ -85,34 +95,47 @@ def identify(text):
 def main():
     # configurations
     config = '-l eng --oem 1 --psm 3'
-    welcome()
+    dimensions = (1100, 950, 1560, 1015)
+    resolution_select = welcome()
+
+    if resolution_select == 0:
+        dimensions = (1100, 950, 1560, 1015)
+    elif resolution_select == 1:
+        dimensions = (1100, 950, 1560, 1015)
+    elif resolution_select == 2:
+        dimensions = (1100, 950, 1560, 1015)
+    elif resolution_select == 3:
+        dimensions = (1100, 950, 1560, 1015)
+    elif resolution_select == 4:
+        dimensions = (1100, 950, 1560, 1015)
+
     while not keyboard.is_pressed('ctrl'):  # press ctrl to stop
-        catch()
-        img = ImageGrab.grab(bbox=(1100, 950, 1560, 1015))  # bbox specifies specific region (bbox= x,y,width,height))
-        catch()
+        catch(dimensions)
+        img = ImageGrab.grab(bbox=dimensions)  # bbox specifies specific region (bbox= x,y,width,height))
+        catch(dimensions)
         img_np = np.array(img)
-        catch()
+        catch(dimensions)
         frame = cv2.cvtColor(img_np, cv2.COLOR_BGR2GRAY)
-        catch()
+        catch(dimensions)
         processed_img = cv2.Canny(frame, threshold1=100, threshold2=350)
-        catch()
+        catch(dimensions)
         vertices = np.array([[0, 65], [0, 0], [460, 0], [460, 65],
                              ], np.int32)
-        catch()
-        processed_img = roi(processed_img, [vertices])
-        catch()
+        catch(dimensions)
+        processed_img = roi(processed_img, [vertices], dimensions)
+        catch(dimensions)
         cv2.imshow("Capture", processed_img)
-        catch()
+        catch(dimensions)
         # PyTesseract
         myText = pytesseract.image_to_string(processed_img, config=config)
-        catch()
+        catch(dimensions)
         if identify(myText):
             print("Prompt detected: Casting line...")
             keyDown('e')
             time.sleep(3)
             keyUp('e')
             print("And now we wait...")
-        catch()
+        catch(dimensions)
 
     print('Thank you for using D2 AutoFishing.')
     sys.exit()
