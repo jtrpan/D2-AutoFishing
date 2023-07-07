@@ -22,7 +22,7 @@ def welcome():
     print('If your monitor is 1920 x 800,  please input 4. (not yet implemented)')
     print('If your monitor is 3440 x 1440, please input 5. (not yet implemented)')
     print('If your monitor is 7680 x 4320, please input 6. (not yet implemented)')
-    resolution = input()
+    resolution = int(input())
     print('Adjusting settings...')
     print('Press CTRL to stop at any time.')
     return resolution
@@ -47,38 +47,72 @@ def compare(tuple):
         return False
 
 
-def catch(dimensions, resolution_select):
+def catch(resolution_select):
+    myRes = resolution_select
     perf_count = 0
     perfs = []
 
-    if resolution_select == 0:  # 2560 x 1440
+    if myRes == 0:  # 2560 x 1440
         px = ImageGrab.grab(
-            bbox=(1107, 985, 1448, 986)).load()  # bbox specifies specific region (bbox= x,y,width,height))
+            bbox=(1243, 980, 1425, 981)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
-        # TODO: CANNOT USE BLACK!
+        # perfs[0] = px[0, 0]
+        # perfs[1] = px[13, 0]
+        # perfs[2] = px[20, 0]
+        # perfs[3] = px[29, 0]
+        # perfs[4] = px[37, 0]
+        # perfs[5] = px[48, 0]
+        # perfs[6] = px[57, 0]
+        # perfs[7] = px[67, 0]
+        # perfs[8] = px[75, 0]
+        # perfs[9] = px[84, 0]
+        # perfs[10] = px[91, 0]
+        # perfs[11] = px[108, 0]
+        # perfs[12] = px[130, 0]
+        # perfs[13] = px[139, 0]
+        # perfs[14] = px[147, 0]
+        # perfs[15] = px[156, 0]
+        # perfs[16] = px[166, 0]
+        # perfs[17] = px[172, 0]
 
-        # following are inaccurate
+        perfs.append(px[0, 0])
+        perfs.append(px[13, 0])
+        perfs.append(px[20, 0])
+        perfs.append(px[29, 0])
+        perfs.append(px[37, 0])
+        perfs.append(px[48, 0])
+        perfs.append(px[57, 0])
+        perfs.append(px[67, 0])
+        perfs.append(px[75, 0])
+        perfs.append(px[84, 0])
+        perfs.append(px[91, 0])
+        perfs.append(px[108, 0])
+        perfs.append(px[130, 0])
+        perfs.append(px[139, 0])
+        perfs.append(px[147, 0])
+        perfs.append(px[156, 0])
+        perfs.append(px[166, 0])
+        perfs.append(px[172, 0])
 
-        perfs[0] = px[0, 0]
-        perfs[1] = px[28, 0]
-        perfs[2] = px[42, 0]
-        perfs[3] = px[54, 0]
-        perfs[4] = px[72, 0]
-        perfs[5] = px[85, 0]
-        perfs[6] = px[99, 0]
-        perfs[7] = px[110, 0]
-        perfs[8] = px[125, 0]
-        perfs[9] = px[136, 0]
-        perfs[10] = px[161, 0]
-        perfs[11] = px[195, 0]
-        perfs[12] = px[209, 0]
-        perfs[13] = px[221, 0]
-        perfs[14] = px[235, 0]
-        perfs[15] = px[250, 0]
-        perfs[16] = px[260, 0]
-        perfs[17] = px[274, 0]
+        # perfs[0] = px[0, 0]
+        # perfs[1] = px[29, 0]
+        # perfs[2] = px[57, 0]
+        # perfs[3] = px[84, 0]
+        # perfs[4] = px[130, 0]
+        # perfs[5] = px[156, 0]
 
-    elif resolution_select == 1:  # 3840 x 2160
+        # perfs[0] = px[0, 0]
+        # perfs[1] = px[37, 0]
+        # perfs[2] = px[75, 0]
+        # perfs[3] = px[130, 0]
+        # perfs[4] = px[166, 0]
+
+        # perfs[0] = px[0, 0]
+        # perfs[1] = px[48, 0]
+        # perfs[2] = px[91, 0]
+        # perfs[3] = px[156, 0]
+
+    elif myRes == 1:  # 3840 x 2160
         px = ImageGrab.grab(
             bbox=(1863, 1470, 2138, 1471)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
@@ -101,7 +135,7 @@ def catch(dimensions, resolution_select):
         perfs[16] = px[260, 0]
         perfs[17] = px[274, 0]
 
-    elif resolution_select == 2:  # 1920 x 1080
+    elif myRes == 2:  # 1920 x 1080
         px = ImageGrab.grab(
             bbox=(1107, 985, 1448, 986)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
@@ -126,7 +160,7 @@ def catch(dimensions, resolution_select):
         perfs[16] = px[260, 0]
         perfs[17] = px[274, 0]
 
-    elif resolution_select == 3:  # 2560 x 1080
+    elif myRes == 3:  # 2560 x 1080
         px = ImageGrab.grab(
             bbox=(1107, 985, 1448, 986)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
@@ -151,7 +185,7 @@ def catch(dimensions, resolution_select):
         perfs[16] = px[260, 0]
         perfs[17] = px[274, 0]
 
-    elif resolution_select == 4:  # 1920 x 800
+    elif myRes == 4:  # 1920 x 800
         px = ImageGrab.grab(
             bbox=(1107, 985, 1448, 986)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
@@ -176,7 +210,7 @@ def catch(dimensions, resolution_select):
         perfs[16] = px[260, 0]
         perfs[17] = px[274, 0]
 
-    for i in perfs:
+    for i in range(len(perfs)):
         if compare(perfs[i]):
             perf_count += 1
 
@@ -188,18 +222,21 @@ def catch(dimensions, resolution_select):
         keyDown('e')
         keyUp('e')
         print("Fish detected: Reeling In!")
+        return True
+    else:
+        return False
 
 
-def roi(img, vertices, dimensions, resolution_select):
+def roi(img, vertices, resolution_select):
     # blank mask:
     mask = np.zeros_like(img)
-    catch(dimensions, resolution_select)
+    catch(resolution_select)
     # fill the mask
     cv2.fillPoly(mask, vertices, 255)
-    catch(dimensions, resolution_select)
+    catch(resolution_select)
     # now only show the area that is the mask
     masked = cv2.bitwise_and(img, mask)
-    catch(dimensions, resolution_select)
+    catch(resolution_select)
     return masked
 
 
@@ -214,10 +251,10 @@ def main():
     # configurations
     config = '-l eng --oem 1 --psm 3'
     dimensions = (1100, 950, 1560, 1015)
-    resolution_select = welcome()
+    resolution_select = int(welcome())
 
     if resolution_select == 0:
-        dimensions = (1100, 950, 1560, 1015)
+        dimensions = (1125, 945, 1342, 1018)
     elif resolution_select == 1:
         dimensions = (1690, 1430, 1997, 1497)
     elif resolution_select == 2:
@@ -228,32 +265,35 @@ def main():
         dimensions = (1100, 950, 1560, 1015)
 
     while not keyboard.is_pressed('ctrl'):  # press ctrl to stop
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
         img = ImageGrab.grab(bbox=dimensions)  # bbox specifies specific region (bbox= x,y,width,height))
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
         img_np = np.array(img)
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
         frame = cv2.cvtColor(img_np, cv2.COLOR_BGR2GRAY)
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
         processed_img = cv2.Canny(frame, threshold1=100, threshold2=350)
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
         vertices = np.array([[0, 65], [0, 0], [460, 0], [460, 65],
                              ], np.int32)
-        catch(dimensions, resolution_select)
-        processed_img = roi(processed_img, [vertices], dimensions, resolution_select)
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
+        processed_img = roi(processed_img, [vertices], resolution_select)
+        catch(resolution_select)
         cv2.imshow("Capture", processed_img)
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
         # PyTesseract
         myText = pytesseract.image_to_string(processed_img, config=config)
-        catch(dimensions, resolution_select)
+        catch(resolution_select)
         if identify(myText):
             print("Prompt detected: Casting line...")
             keyDown('e')
             time.sleep(3)
             keyUp('e')
             print("And now we wait...")
-        catch(dimensions, resolution_select)
+            timeout = time.time() + 25  # 30 sec from now
+            while True:
+                if catch(resolution_select) or time.time() > timeout:
+                    break
 
     print('Thank you for using D2 AutoFishing.')
     sys.exit()
