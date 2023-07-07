@@ -56,25 +56,6 @@ def catch(resolution_select):
         px = ImageGrab.grab(
             bbox=(1243, 980, 1425, 981)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
-        # perfs[0] = px[0, 0]
-        # perfs[1] = px[13, 0]
-        # perfs[2] = px[20, 0]
-        # perfs[3] = px[29, 0]
-        # perfs[4] = px[37, 0]
-        # perfs[5] = px[48, 0]
-        # perfs[6] = px[57, 0]
-        # perfs[7] = px[67, 0]
-        # perfs[8] = px[75, 0]
-        # perfs[9] = px[84, 0]
-        # perfs[10] = px[91, 0]
-        # perfs[11] = px[108, 0]
-        # perfs[12] = px[130, 0]
-        # perfs[13] = px[139, 0]
-        # perfs[14] = px[147, 0]
-        # perfs[15] = px[156, 0]
-        # perfs[16] = px[166, 0]
-        # perfs[17] = px[172, 0]
-
         perfs.append(px[0, 0])
         perfs.append(px[13, 0])
         perfs.append(px[20, 0])
@@ -94,121 +75,100 @@ def catch(resolution_select):
         perfs.append(px[166, 0])
         perfs.append(px[172, 0])
 
-        # perfs[0] = px[0, 0]
-        # perfs[1] = px[29, 0]
-        # perfs[2] = px[57, 0]
-        # perfs[3] = px[84, 0]
-        # perfs[4] = px[130, 0]
-        # perfs[5] = px[156, 0]
-
-        # perfs[0] = px[0, 0]
-        # perfs[1] = px[37, 0]
-        # perfs[2] = px[75, 0]
-        # perfs[3] = px[130, 0]
-        # perfs[4] = px[166, 0]
-
-        # perfs[0] = px[0, 0]
-        # perfs[1] = px[48, 0]
-        # perfs[2] = px[91, 0]
-        # perfs[3] = px[156, 0]
-
     elif myRes == 1:  # 3840 x 2160
         px = ImageGrab.grab(
             bbox=(1863, 1470, 2138, 1471)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
-        perfs[0] = px[0, 0]
-        perfs[1] = px[28, 0]
-        perfs[2] = px[42, 0]
-        perfs[3] = px[54, 0]
-        perfs[4] = px[72, 0]
-        perfs[5] = px[85, 0]
-        perfs[6] = px[99, 0]
-        perfs[7] = px[110, 0]
-        perfs[8] = px[125, 0]
-        perfs[9] = px[136, 0]
-        perfs[10] = px[161, 0]
-        perfs[11] = px[195, 0]
-        perfs[12] = px[209, 0]
-        perfs[13] = px[221, 0]
-        perfs[14] = px[235, 0]
-        perfs[15] = px[250, 0]
-        perfs[16] = px[260, 0]
-        perfs[17] = px[274, 0]
+        perfs.append(px[0, 0])
+        perfs.append(px[28, 0])
+        perfs.append(px[42, 0])
+        perfs.append(px[54, 0])
+        perfs.append(px[72, 0])
+        perfs.append(px[85, 0])
+        perfs.append(px[99, 0])
+        perfs.append(px[110, 0])
+        perfs.append(px[125, 0])
+        perfs.append(px[136, 0])
+        perfs.append(px[161, 0])
+        perfs.append(px[195, 0])
+        perfs.append(px[209, 0])
+        perfs.append(px[221, 0])
+        perfs.append(px[235, 0])
+        perfs.append(px[250, 0])
+        perfs.append(px[260, 0])
+        perfs.append(px[274, 0])
 
     elif myRes == 2:  # 1920 x 1080
         px = ImageGrab.grab(
             bbox=(1107, 985, 1448, 986)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
-        # following are inaccurate
-
-        perfs[0] = px[0, 0]
-        perfs[1] = px[28, 0]
-        perfs[2] = px[42, 0]
-        perfs[3] = px[54, 0]
-        perfs[4] = px[72, 0]
-        perfs[5] = px[85, 0]
-        perfs[6] = px[99, 0]
-        perfs[7] = px[110, 0]
-        perfs[8] = px[125, 0]
-        perfs[9] = px[136, 0]
-        perfs[10] = px[161, 0]
-        perfs[11] = px[195, 0]
-        perfs[12] = px[209, 0]
-        perfs[13] = px[221, 0]
-        perfs[14] = px[235, 0]
-        perfs[15] = px[250, 0]
-        perfs[16] = px[260, 0]
-        perfs[17] = px[274, 0]
+        # THESE ARE INACCURATE AND WILL NOT WORK
+        perfs.append(px[0, 0])
+        perfs.append(px[13, 0])
+        perfs.append(px[20, 0])
+        perfs.append(px[29, 0])
+        perfs.append(px[37, 0])
+        perfs.append(px[48, 0])
+        perfs.append(px[57, 0])
+        perfs.append(px[67, 0])
+        perfs.append(px[75, 0])
+        perfs.append(px[84, 0])
+        perfs.append(px[91, 0])
+        perfs.append(px[108, 0])
+        perfs.append(px[130, 0])
+        perfs.append(px[139, 0])
+        perfs.append(px[147, 0])
+        perfs.append(px[156, 0])
+        perfs.append(px[166, 0])
+        perfs.append(px[172, 0])
 
     elif myRes == 3:  # 2560 x 1080
         px = ImageGrab.grab(
             bbox=(1107, 985, 1448, 986)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
-        # following are inaccurate
-
-        perfs[0] = px[0, 0]
-        perfs[1] = px[28, 0]
-        perfs[2] = px[42, 0]
-        perfs[3] = px[54, 0]
-        perfs[4] = px[72, 0]
-        perfs[5] = px[85, 0]
-        perfs[6] = px[99, 0]
-        perfs[7] = px[110, 0]
-        perfs[8] = px[125, 0]
-        perfs[9] = px[136, 0]
-        perfs[10] = px[161, 0]
-        perfs[11] = px[195, 0]
-        perfs[12] = px[209, 0]
-        perfs[13] = px[221, 0]
-        perfs[14] = px[235, 0]
-        perfs[15] = px[250, 0]
-        perfs[16] = px[260, 0]
-        perfs[17] = px[274, 0]
+        # THESE ARE INACCURATE AND WILL NOT WORK
+        perfs.append(px[0, 0])
+        perfs.append(px[13, 0])
+        perfs.append(px[20, 0])
+        perfs.append(px[29, 0])
+        perfs.append(px[37, 0])
+        perfs.append(px[48, 0])
+        perfs.append(px[57, 0])
+        perfs.append(px[67, 0])
+        perfs.append(px[75, 0])
+        perfs.append(px[84, 0])
+        perfs.append(px[91, 0])
+        perfs.append(px[108, 0])
+        perfs.append(px[130, 0])
+        perfs.append(px[139, 0])
+        perfs.append(px[147, 0])
+        perfs.append(px[156, 0])
+        perfs.append(px[166, 0])
+        perfs.append(px[172, 0])
 
     elif myRes == 4:  # 1920 x 800
         px = ImageGrab.grab(
             bbox=(1107, 985, 1448, 986)).load()  # bbox specifies specific region (bbox= x,y,width,height))
 
-        # following are inaccurate
-
-        perfs[0] = px[0, 0]
-        perfs[1] = px[28, 0]
-        perfs[2] = px[42, 0]
-        perfs[3] = px[54, 0]
-        perfs[4] = px[72, 0]
-        perfs[5] = px[85, 0]
-        perfs[6] = px[99, 0]
-        perfs[7] = px[110, 0]
-        perfs[8] = px[125, 0]
-        perfs[9] = px[136, 0]
-        perfs[10] = px[161, 0]
-        perfs[11] = px[195, 0]
-        perfs[12] = px[209, 0]
-        perfs[13] = px[221, 0]
-        perfs[14] = px[235, 0]
-        perfs[15] = px[250, 0]
-        perfs[16] = px[260, 0]
-        perfs[17] = px[274, 0]
+        # THESE ARE INACCURATE AND WILL NOT WORK
+        perfs.append(px[0, 0])
+        perfs.append(px[13, 0])
+        perfs.append(px[20, 0])
+        perfs.append(px[29, 0])
+        perfs.append(px[37, 0])
+        perfs.append(px[48, 0])
+        perfs.append(px[57, 0])
+        perfs.append(px[67, 0])
+        perfs.append(px[75, 0])
+        perfs.append(px[84, 0])
+        perfs.append(px[91, 0])
+        perfs.append(px[108, 0])
+        perfs.append(px[130, 0])
+        perfs.append(px[139, 0])
+        perfs.append(px[147, 0])
+        perfs.append(px[156, 0])
+        perfs.append(px[166, 0])
+        perfs.append(px[172, 0])
 
     for i in range(len(perfs)):
         if compare(perfs[i]):
